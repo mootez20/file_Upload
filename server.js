@@ -1,12 +1,17 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
+var cors = require('cors')
 
 const app = express();
 
 app.use(fileUpload());
+app.use(cors())
 
 //Upload Endpoint
 app.post('/upload',(req,res)=>{
+    console.log("file to be uploadedd")
+    console.log("response == ")
+    console.log(res)
     if(req.files === null){
         return res.status(400).json({ msg: 'No file uploaded'});
     }

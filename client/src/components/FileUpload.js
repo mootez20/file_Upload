@@ -17,7 +17,8 @@ const FileUpload = () =>{
         formData.append('file',file);
 
         try {
-            const res = await axios.post('/upload', formData, {
+            console.log("heeerrrrrrrrrrrreeeee")
+            const res = await axios.post('http://127.0.0.1:5000/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -28,11 +29,11 @@ const FileUpload = () =>{
             setUploadedFile({fileName, filePath});
 
         } catch(err){
-            if(err.response.status === 500) {
+            // if(err.response.status === 500) {
                 console.log('There was a problem with the server ');
-            }else {
-                console.log(err.response.data.msg);
-            }
+            // }else {
+            //     console.log(err.response.data.msg);
+            // }
         }
     };
     return (
